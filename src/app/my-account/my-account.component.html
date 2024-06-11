@@ -1,0 +1,35 @@
+<app-nav></app-nav>
+
+<div id="container">
+  <p class="center" *ngIf="!user[0]">You don't have any account</p>
+  <div *ngIf="user[0]">
+    <div id="userData" class="userData" *ngIf="!message">
+      <div>
+        <p>
+          User name: <span>{{ user[0].userName }}</span>
+        </p>
+        <p>
+          Email: <span>{{ user[0].email }}</span>
+        </p>
+        <p>
+          Date of birth: <span>{{ user[0].dateOfBirth.slice(0, 10) }}</span>
+        </p>
+        <p>
+          Address: <span>{{ user[0].address }}</span>
+        </p>
+        <p>
+          Zip code: <span>{{ user[0].zipCode }}</span>
+        </p>
+        <p>
+          Phone: <span>{{ user[0].phone }}</span>
+        </p>
+        <p>
+          Profession: <span>{{ user[0].profession }}</span>
+        </p>
+        <button class="btn" id="delete" (click)="deleteUser()">Delete</button>
+        <button class="btn" id="edit" (click)="editUser()">Edit</button>
+      </div>
+    </div>
+    <p class="center" *ngIf="message">{{ message["message"] }}</p>
+  </div>
+</div>

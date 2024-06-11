@@ -1,0 +1,64 @@
+<app-nav></app-nav>
+
+<main class="allUsers">
+  <div>
+    <table>
+      <thead>
+        <tr>
+          <th>User name</th>
+          <th>Email</th>
+          <th>Date of birth</th>
+          <th>Address</th>
+          <th>Zip code</th>
+          <th>Phone</th>
+          <th>Profession</th>
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let user of users">
+        <tr>
+          <td>
+            <p>{{ user.userName }}</p>
+          </td>
+          <td>
+            <p>{{ user.email }}</p>
+          </td>
+          <td>
+            <p>{{ user.dateOfBirth.slice(0, 10) }}</p>
+          </td>
+          <td>
+            <p>{{ user.address }}</p>
+          </td>
+          <td>
+            <p>{{ user.zipCode }}</p>
+          </td>
+          <td>
+            <p>{{ user.phone }}</p>
+          </td>
+          <td>
+            <p>{{ user.profession }}</p>
+          </td>
+          <td>
+            <button class="btn" id="delete" (click)="deleteUser(user._id)">
+              Delete
+            </button>
+          </td>
+          <td>
+            <button class="btn" (click)="editUser(user._id)">Edit</button>
+          </td>
+          <td>
+            <button
+              class="btn btn-my-account"
+              (click)="navigateToMayAccount(user._id)"
+            >
+              My account
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="center" *ngIf="errorMessage">Sorry, try again later</p>
+</main>
